@@ -384,7 +384,7 @@
 function openOrder(card) {
                 var message = card.getAttribute('data-order-message') || '';
                 var url = 'https://line.me/R/oaMessage/@478ihlka/?' + encodeURIComponent(message);
-                window.location.href = url;
+                window.open(url, '_blank');
             }
 
             cards.forEach(function (card) {
