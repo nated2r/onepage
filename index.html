@@ -194,7 +194,7 @@
         <div class="container relative-z">
             <h2 class="section-title text-center">飼主私藏團購價<br>和群友一起買，給毛孩最長情的告白。</h2>
             <div class="pricing-grid mt-5">
-                <div class="price-card">
+                <div class="price-card" role="button" tabindex="0" data-order-message="我要一瓶">
                     <div class="tier">新朋友體驗組</div>
                     <div class="qty-price-row">
                         <div class="qty">1 瓶</div>
@@ -202,7 +202,7 @@
                     </div>
                     <div class="save">現省 $500</div>
                 </div>
-                <div class="price-card">
+                <div class="price-card" role="button" tabindex="0" data-order-message="我要兩瓶">
                     <div class="tier">毛孩呵護組</div>
                     <div class="qty-price-row">
                         <div class="qty">2 瓶</div>
@@ -210,7 +210,7 @@
                     </div>
                     <div class="save">現省 $1,000</div>
                 </div>
-                <div class="price-card popular scale-up">
+                <div class="price-card popular scale-up" role="button" tabindex="0" data-order-message="我要六瓶">
                     <div class="popular-badge">推薦首選</div>
                     <div class="tier">調養體質組</div>
                     <div class="qty-price-row">
@@ -219,7 +219,7 @@
                     </div>
                     <div class="save highlight">每瓶約 $1,096</div>
                 </div>
-                <div class="price-card">
+                <div class="price-card" role="button" tabindex="0" data-order-message="我要十瓶">
                     <div class="tier">長期照護組</div>
                     <div class="qty-price-row">
                         <div class="qty">10 瓶</div>
@@ -229,7 +229,7 @@
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a href="#" class="btn-primary large pulse">加入 Line 社群，群友下單另有隱藏好禮！</a>
+                <a href="https://line.me/ti/g2/1yr7IigA4ahb10h13ZZnTlNnxLyDdGSsSPsvpQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="btn-primary large pulse">加入 Line 社群，群友下單另有隱藏好禮！</a>
             </div>
         </div>
     </section>
@@ -373,6 +373,31 @@
                 }
                 nudgePet('摸我一下');
             }, 6500);
+        })();
+    </script>
+    <script>
+        (function () {
+            const orderUrl = 'https://s.luckycat.no8.io/link/channels/UmqKoHGurJ';
+            const cards = document.querySelectorAll('.pricing-grid .price-card[data-order-message]');
+            if (!cards.length) return;
+
+            function openOrder(card) {
+                const message = card.getAttribute('data-order-message') || '';
+                const target = new URL(orderUrl);
+                target.searchParams.set('text', message);
+                window.location.href = target.toString();
+            }
+
+            cards.forEach(function (card) {
+                card.addEventListener('click', function () {
+                    openOrder(card);
+                });
+                card.addEventListener('keydown', function (event) {
+                    if (event.key !== 'Enter' && event.key !== ' ') return;
+                    event.preventDefault();
+                    openOrder(card);
+                });
+            });
         })();
     </script>
 </body>
