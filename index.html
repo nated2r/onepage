@@ -28,7 +28,7 @@
             </div>
             <div class="hero-image zoom-in">
                 <div class="image-wrapper">
-                    <img src="assets/images/user_hero_image.jpg" alt="溫柔抱著橘貓黏黏">
+                    <img src="assets/images/user_hero_image.jpg" alt="溫柔抱著橘貓黏黏" loading="eager" fetchpriority="high" decoding="async">
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
             <h2 class="section-title text-center">這些煩惱，我都懂。<br>我家黏黏也曾天天經歷。</h2>
             <div class="split-layout align-center mt-5">
                 <div class="image-box slide-right">
-                    <img src="assets/images/user_pain_points_image.jpg" alt="貓咪對保健品撇頭不吃，便便超臭的情境">
+                    <img src="assets/images/user_pain_points_image.jpg" alt="貓咪對保健品撇頭不吃，便便超臭的情境" loading="lazy" decoding="async">
                 </div>
                 <div class="text-box slide-left">
                     <div class="pain-list">
@@ -77,7 +77,7 @@
             <h2 class="section-title text-center">為了黏黏，我研究了很久的<br>「<span class="highlight-green">藍藻</span> + <span class="highlight-blue">益生菌</span>」協同效應</h2>
             <div class="split-layout reverse align-center mt-5">
                 <div class="image-box slide-left">
-                    <img src="assets/images/formula_illustration_1777536022465.png" alt="藍藻化身超級營養便當餵給益生菌的可愛圖解">
+                    <img src="assets/images/formula_illustration_1777536022465.png" alt="藍藻化身超級營養便當餵給益生菌的可愛圖解" loading="lazy" decoding="async">
                 </div>
                 <div class="text-box slide-right">
                     <div class="feature-card">
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <div class="feature-separate-image">
-                        <img src="assets/images/feature_patented_bacteria.png" alt="功能性乳酸菌配方與專利菌株說明" class="feature-card-image">
+                        <img src="assets/images/feature_patented_bacteria_optimized.jpg" alt="功能性乳酸菌配方與專利菌株說明" class="feature-card-image" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -142,7 +142,7 @@
             <h2 class="section-title text-center">只給黏黏最真實的保障！<br>這 4 個國際認證，是我堅持的底線。</h2>
             <div class="split-layout align-center mt-5">
                 <div class="image-box">
-                    <img src="assets/images/S__112328717.jpg" alt="真實國際認證標章查驗" class="shadow-img rounded-img">
+                    <img src="assets/images/S__112328717.jpg" alt="真實國際認證標章查驗" class="shadow-img rounded-img" loading="lazy" decoding="async">
                 </div>
                 <div class="text-box">
                     <div class="cert-grid">
@@ -180,11 +180,11 @@
     <section class="testimonials-gallery section-padding" id="testimonials-gallery">
         <div class="container">
             <div class="gallery-stack">
-                <img src="assets/images/testimonial_01_faq.jpg" alt="黏黏真實見證與常見問題解答" class="gallery-image shadow-img rounded-img">
-                <img src="assets/images/testimonial_02_case.jpg" alt="結紮後毛髮恢復見證" class="gallery-image shadow-img rounded-img">
-                <img src="assets/images/testimonial_03_recovery.jpg" alt="術後恢復見證" class="gallery-image shadow-img rounded-img">
-                <img src="assets/images/testimonial_04_chat.jpg" alt="飼主聊天回饋見證" class="gallery-image shadow-img rounded-img">
-                <img src="assets/images/testimonial_05_compare.jpg" alt="產品比較圖表見證" class="gallery-image shadow-img rounded-img">
+                <img src="assets/images/testimonial_01_faq.jpg" alt="黏黏真實見證與常見問題解答" class="gallery-image shadow-img rounded-img" loading="lazy" decoding="async">
+                <img src="assets/images/testimonial_02_case.jpg" alt="結紮後毛髮恢復見證" class="gallery-image shadow-img rounded-img" loading="lazy" decoding="async">
+                <img src="assets/images/testimonial_03_recovery.jpg" alt="術後恢復見證" class="gallery-image shadow-img rounded-img" loading="lazy" decoding="async">
+                <img src="assets/images/testimonial_04_chat.jpg" alt="飼主聊天回饋見證" class="gallery-image shadow-img rounded-img" loading="lazy" decoding="async">
+                <img src="assets/images/testimonial_05_compare.jpg" alt="產品比較圖表見證" class="gallery-image shadow-img rounded-img" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
@@ -238,8 +238,8 @@
     <section class="story section-padding" id="story">
         <div class="container max-w-800">
             <div class="story-image">
-                <video class="rounded-img shadow-img" controls autoplay muted loop playsinline>
-                    <source src="assets/videos/story_video.mp4" type="video/mp4">
+                <video class="rounded-img shadow-img" id="storyVideo" controls muted playsinline preload="none">
+                    <source data-src="assets/videos/story_video.mp4" type="video/mp4">
                     您的瀏覽器不支援影片播放，請改用較新的瀏覽器。
                 </video>
             </div>
@@ -257,7 +257,7 @@
 
     <div class="pet-widget" id="petWidget" aria-live="polite">
         <button class="pet-body" id="petBody" aria-label="互動小貓">
-            <img src="assets/images/pet_kitten_interactive.png" alt="互動小貓" class="pet-cat-image" id="petCatImage">
+            <img src="assets/images/pet_kitten_interactive_optimized.jpg" alt="互動小貓" class="pet-cat-image" id="petCatImage" loading="lazy" decoding="async">
         </button>
         <div class="pet-bubble" id="petBubble">點我互動！</div>
     </div>
@@ -398,6 +398,35 @@
                     openOrder(card);
                 });
             });
+        })();
+    </script>
+    <script>
+        (function () {
+            const storyVideo = document.getElementById('storyVideo');
+            if (!storyVideo) return;
+            const source = storyVideo.querySelector('source[data-src]');
+            if (!source) return;
+
+            function loadVideo() {
+                if (source.getAttribute('src')) return;
+                source.setAttribute('src', source.getAttribute('data-src'));
+                storyVideo.load();
+            }
+
+            if (!('IntersectionObserver' in window)) {
+                loadVideo();
+                return;
+            }
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    loadVideo();
+                    observer.disconnect();
+                });
+            }, { rootMargin: '300px 0px' });
+
+            observer.observe(storyVideo);
         })();
     </script>
 </body>

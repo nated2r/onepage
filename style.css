@@ -72,6 +72,15 @@ img {
 .section-padding {
     padding: 100px 0;
 }
+.formula,
+.comparison,
+.certifications,
+.testimonials-gallery,
+.pricing,
+.story {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+}
 
 .text-center { text-align: center; }
 .mt-4 { margin-top: 2rem; }
