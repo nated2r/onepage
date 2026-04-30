@@ -377,17 +377,15 @@
     </script>
     <script>
         (function () {
-            const orderUrl = 'https://line.me/R/oaMessage/%40478ihlka/?';
+            const orderUrl = 'https://line.me/R/oaMessage/478ihlka/';
             const cards = document.querySelectorAll('.pricing-grid .price-card[data-order-message]');
             if (!cards.length) return;
 
             function openOrder(card) {
                 const message = card.getAttribute('data-order-message') || '';
-                const target = orderUrl + encodeURIComponent(message);
-                if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
-                    navigator.clipboard.writeText(message).catch(function () {});
-                }
-                window.location.href = target;
+                const target = new URL(orderUrl);
+                target.searchParams.set('text', message);
+                window.location.href = target.toString();
             }
 
             cards.forEach(function (card) {
