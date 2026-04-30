@@ -383,9 +383,8 @@
 
             function openOrder(card) {
                 const message = card.getAttribute('data-order-message') || '';
-                const target = new URL(orderUrl);
-                target.searchParams.set('text', message);
-                window.location.href = target.toString();
+                const url = 'line://oaMessage/@478ihlka?text=' + encodeURIComponent(message);
+                window.location.href = url;
             }
 
             cards.forEach(function (card) {
