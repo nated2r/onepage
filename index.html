@@ -377,14 +377,32 @@
     </script>
     <script>
         (function () {
-            const orderUrl = 'https://line.me/R/ti/p/@478ihlka';
+            const lineUrl = 'https://line.me/R/ti/p/@478ihlka';
             const cards = document.querySelectorAll('.pricing-grid .price-card[data-order-message]');
             if (!cards.length) return;
 
+            var toast = document.createElement('div');
+            toast.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.78);color:#fff;padding:12px 22px;border-radius:24px;font-size:15px;z-index:9999;opacity:0;transition:opacity 0.3s;pointer-events:none;white-space:nowrap;';
+            document.body.appendChild(toast);
+
+            function showToast(msg) {
+                toast.textContent = msg;
+                toast.style.opacity = '1';
+                setTimeout(function () { toast.style.opacity = '0'; }, 2200);
+            }
+
             function openOrder(card) {
-                const message = card.getAttribute('data-order-message') || '';
-                const url = 'line://oaMessage/@478ihlka?text=' + encodeURIComponent(message);
-                window.location.href = url;
+                var message = card.getAttribute('data-order-message') || '';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(message).then(function () {
+                        showToast('✅ 已複製「' + message + '」，開啟 LINE 後貼上即可！');
+                        setTimeout(function () { window.location.href = lineUrl; }, 1500);
+                    }).catch(function () {
+                        window.location.href = lineUrl;
+                    });
+                } else {
+                    window.location.href = lineUrl;
+                }
             }
 
             cards.forEach(function (card) {
